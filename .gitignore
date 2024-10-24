@@ -4,6 +4,8 @@
 *.a
 demo-*
 .demo-*
+perf_tester
+.perf_tester
 
 # Swap
 [._]*.s[a-v][a-z]

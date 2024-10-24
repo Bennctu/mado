@@ -58,15 +58,19 @@ config LOADER_GIF
 
 endmenu
 
-choice
-    prompt "Application Selection"
-    default DEMO_APPLICATIONS
+menu "Performance Testers"
 
 config PERFORMANCE_TEST
-    bool "Built performance test"
+    bool "Build composite tester"
+    default y
+
+endmenu
+
+menu "Demo Applications"
 
 config DEMO_APPLICATIONS
     bool "Build demo applications"
+    default y
 
 config DEMO_MULTI
     bool "Build multi demo"
@@ -102,4 +106,4 @@ config DEMO_ANIMATION
     bool "Build animation demo"
     default y
     depends on DEMO_APPLICATIONS 
-endchoice
+endmenu

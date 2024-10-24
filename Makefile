@@ -110,16 +110,19 @@ libtwin.a_files-y += backend/fbdev.c
 libtwin.a_files-y += backend/linux_input.c
 endif
 
-# Standalone application
+# Performance tester
+
 ifeq ($(CONFIG_PERFORMANCE_TEST), y)
-target-y += demo-$(BACKEND)
-demo-$(BACKEND)_depends-y += $(target.a-y)
-demo-$(BACKEND)_files-y = apps/perf.c
-demo-$(BACKEND)_includes-y := include
-demo-$(BACKEND)_ldflags-y := \
+target-$(CONFIG_PERFORMANCE_TEST) += perf_tester
+perf_tester_depends-y += $(target.a-y)
+perf_tester_files-y += apps/perf.c
+perf_tester_includes-y := include
+perf_tester_ldflags-y := \
 	$(target.a-y) \
 	$(TARGET_LIBS)
 endif
+
+# Standalone application
 
 ifeq ($(CONFIG_DEMO_APPLICATIONS), y)
 target-y += demo-$(BACKEND)
